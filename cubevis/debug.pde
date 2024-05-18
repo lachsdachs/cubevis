@@ -3,7 +3,7 @@ void debug() {
   
   screenWrite("fps: " + limpad(frameRate,1));
   screenWrite(width + " x " + height);
-  screenWrite("zoom: " + scale + " 0X");
+  screenWrite("zoom: " + limpad(scale,1) + " X");
   screenWrite("iteration step size: " + step);
   screenWrite("frametime delta: " + dt);
   screenWrite("current time signature: " + tSig());
@@ -12,8 +12,9 @@ void debug() {
   empty();
   screenWrite("press [s] for screenshot");
   screenWrite("press [d] to hide/show debug");
-  screenWrite("press [a] to toggle autorotation");
-  
+  screenWrite("press [r] to toggle autorotation");
+  screenWrite("press [c] to toggle cube");
+  screenWrite("press [a] to toggle axes");
   
   
   flushScreenLog();

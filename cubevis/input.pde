@@ -11,6 +11,9 @@ void mouseWheel(MouseEvent event) {
 
 boolean printDebug = true;
 boolean autorotate = false;
+boolean showCube = true;
+boolean showAxes = false;
+
 void keyPressed() {
   if (key == 's') {
     screenshot();
@@ -18,10 +21,16 @@ void keyPressed() {
   } else if (key == 'd') {
     printDebug = !printDebug;
     screenLog("toggled debug view to " + printDebug);
-  } else if (key == 'a') {
+  } else if (key == 'r') {
     autorotate = !autorotate;
-    screenLog("toggled autorotation to "+ autorotate);
-  }
+    screenLog("toggled autorotation to " + autorotate);
+  } else if (key == 'c') {
+    showCube = !showCube;
+    screenLog("toggled cube to " + showCube);
+  } else if (key == 'a') {
+    showAxes = !showAxes;
+    screenLog("toggled axes to " + showAxes);
+  } 
 }
 
 void screenshot() {

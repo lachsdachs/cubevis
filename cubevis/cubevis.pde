@@ -24,7 +24,7 @@ void draw() {
   getDt();
   pushMatrix();
   stroke(0);
-  background(200);
+  background(50);
   translate(width/2, height/2, -size);
 
   handleInput();
@@ -37,8 +37,9 @@ void draw() {
   rotateX(rx);
   rotateY(ry);
   scale(scale);
-  box(size);
-
+  if(showCube) {
+    box(size);
+  }
   beginShape(LINES);
 
   function(-size/2);
@@ -50,6 +51,10 @@ void draw() {
   }
   endShape(CLOSE);
   popMatrix();
+  
+  if(showAxes) {
+    
+  } 
 
   if (printDebug) {
     debug();

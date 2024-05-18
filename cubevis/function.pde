@@ -1,7 +1,6 @@
-float p = 7;
-float q = 5;
+float p = 90;
+float q = 100;
 void function(float t) {
-  //p += millis()/1000f;
   x = (2+cos(p*t))*cos(q*t + millis()/1000f)*100;
   y = (2+cos(p*t))*sin(q*t + millis()/1000f)*100;
   z = sin(t*p)*100;
