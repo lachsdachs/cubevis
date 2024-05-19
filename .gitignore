@@ -8,3 +8,8 @@ application.windows32
 application.windows64
 application.macosx
 out
+dist
+target
+target_ra
+target_wasm
+.lycheecache
