@@ -22,7 +22,7 @@ fn main() -> eframe::Result<()> {
     eframe::run_native(
         "cubevis",
         native_options,
-        Box::new(|cc| Box::new(cubevis::TemplateApp::new(cc))),
+        Box::new(|cc| Box::new(cubevis::Cubevis::new(cc))),
     )
 }
 
@@ -39,7 +39,7 @@ fn main() {
             .start(
                 "the_canvas_id", // hardcode it
                 web_options,
-                Box::new(|cc| Box::new(cubevis::TemplateApp::new(cc))),
+                Box::new(|cc| Box::new(cubevis::Cubevis::new(cc))),
             )
             .await
             .expect("failed to start eframe");
