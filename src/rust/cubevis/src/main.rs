@@ -1,13 +1,10 @@
 #![warn(clippy::all, rust_2018_idioms)]
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")] // hide console window on Windows in release
 
-egui_extras = { version = "*", features = ["all_loaders"] }
-image = { version = "0.24", features = ["jpeg", "png"] } # Add the types you want support for
-
 // When compiling natively:
 #[cfg(not(target_arch = "wasm32"))]
 fn main() -> eframe::Result<()> {
-    egui_extras::install_image_loaders(egui_ctx);
+
 
     env_logger::init(); // Log to stderr (if you run with `RUST_LOG=debug`).
 
@@ -42,7 +39,7 @@ fn main() {
             .start(
                 "the_canvas_id", // hardcode it
                 web_options,
-                Box::new(|cc| Box::new(rasa::TemplateApp::new(cc))),
+                Box::new(|cc| Box::new(cubevis::TemplateApp::new(cc))),
             )
             .await
             .expect("failed to start eframe");

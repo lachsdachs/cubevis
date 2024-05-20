@@ -1,4 +1,4 @@
-workspace = { members = ["cubevis"] }
+# workspace = { members = ["cubevis"] }
 [package]
 name = "cubevis"
 version = "0.1.0"
