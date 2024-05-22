@@ -1,6 +1,5 @@
 void setup() {
   size(800, 800, P3D);
-  hint(DISABLE_OPENGL_ERRORS);
   surface.setResizable(true);
   noFill();
   textSize(20);
@@ -21,6 +20,7 @@ float bsx, bsy;
 float dt = 16; // 16 is the expected value at 60 fps
 
 void draw() {
+  hint(ENABLE_DEPTH_TEST);
   getDt();
   pushMatrix();
   stroke(0);
@@ -55,6 +55,8 @@ void draw() {
   if(showAxes) {
     
   } 
+  
+  hint(DISABLE_DEPTH_TEST);
 
   if (printDebug) {
     debug();
