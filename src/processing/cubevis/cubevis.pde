@@ -8,8 +8,12 @@ void setup() {
   screenLog("initiated succesfully");
 }
 
+boolean rotateWeirdly = false;
+
 float x, y, z = 0;
 float size = 500;
+
+
 float step = 0.01;
 float scale = 1;
 
@@ -19,24 +23,32 @@ float bsx, bsy;
 
 float dt = 16; // 16 is the expected value at 60 fps
 
+float tx;
+float ty;
+
 void draw() {
   hint(ENABLE_DEPTH_TEST);
   getDt();
   pushMatrix();
   stroke(0);
   background(50);
-  translate(width/2, height/2, -size);
-
   handleInput();
-
+  
+  //temp file has different versions of this.
+  
+  translate(width/2, height/2, -size);
+  scale(scale);
+  translate(tx, ty);
+  rotateX(rx);
+  rotateY(ry);
+  
+  
   bsx = mouseX;
   bsy = mouseY;
   if (autorotate) {
     ry += dt/500f;
   }
-  rotateX(rx);
-  rotateY(ry);
-  scale(scale);
+  
   if(showCube) {
     box(size);
   }

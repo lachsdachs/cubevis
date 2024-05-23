@@ -1,7 +1,12 @@
 void handleInput() {
-  if (mousePressed && mouseButton == LEFT) {
+  if (mousePressed) {
+    if(mouseButton == LEFT) {
     rx += (bsy-(float)mouseY)/30f;
     ry -= (bsx-(float)mouseX)/30f;
+  } else if (mouseButton == RIGHT) {
+    tx += mouseX - pmouseX;
+    ty += mouseY - pmouseY;
+  }
   }
 }
 
