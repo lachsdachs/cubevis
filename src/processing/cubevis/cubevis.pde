@@ -6,7 +6,7 @@ void setup() {
   strokeWeight(3);
   //colorMode(HSB);
   screenLog("initiated succesfully");
-} //none of this matters anymore i dont even know why thi woud possibly be viable
+}
 
 float x, y, z = 0;
 float size = 500;
