@@ -6,7 +6,7 @@ void setup() {
   strokeWeight(3);
   //colorMode(HSB);
   screenLog("initiated succesfully");
-}
+} //none of this matters anymore i dont even know why thi woud possibly be viable
 
 float x, y, z = 0;
 float size = 500;
@@ -32,18 +32,14 @@ void draw() {
   background(50);
   handleInput();
   
-  //temp file has different versions of this.
-  
   translate(width/2, height/2, -size);
   scale(scale);
   translate(tx, ty);
   rotateX(rx);
   rotateY(ry);
   
-  
   bsx = mouseX;
-  bsy = mouseY;
-  
+  bsy = mouseY;  
   
   if (autorotate) {
     ry += dt/500f;
@@ -60,9 +56,7 @@ void draw() {
     line(0, 0, 0, 0, 0, axisLength);
   }
   
-  
   beginShape(LINES);
-
   function(-size/2);
   for (float t = -size/2; t < size/2; t+=step) {
     vertex(x, y, z);
@@ -73,12 +67,8 @@ void draw() {
   endShape(CLOSE);
   popMatrix();
   
-  if(showAxes) {
-    
-  } 
-  
   hint(DISABLE_DEPTH_TEST);
-
+  
   if (printDebug) {
     debug();
   }

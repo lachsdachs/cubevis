@@ -5,6 +5,7 @@ void debug() {
   screenWrite(width + " x " + height);
   screenWrite("zoom: " + limpad(scale,1) + " X");
   screenWrite("iteration step size: " + step);
+  screenWrite("vertex count: " + nfc((int)((1/step) * size)));
   screenWrite("frametime delta: " + dt);
   screenWrite("current time signature: " + tSig());
   if(keyPressed && key != CODED) screenWrite("key = " + key);
@@ -16,7 +17,6 @@ void debug() {
   screenWrite("press [r] to toggle autorotation");
   screenWrite("press [c] to toggle cube");
   screenWrite("press [a] to toggle axes");
-  
   
   flushScreenLog();
 }

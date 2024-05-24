@@ -1,51 +1,86 @@
-// a widget is a rectangular tile that may subcontain other tiles.
-// it has a bunch of properties and methods for updating and displaying it.
-
-class Widget {
-  //constructed properties go here
-  PVector pos;
-  PVector size;
+abstract class Widget {
+  public float x,y,w,h;
   
-  //run-time properties go here
-  float x,y; //position
-  float w,h; //size
-  
-  Widget(float posX, float posY, float w_, float h_) {
-    pos = new PVector(posX, posY);
-    size = new PVector(w_, h_);   
-    
-    x = posX;
-    y = posY;
-    w = w_;
-    y = h_;
-  }
-  
-  //empty constructor. This should not need to exist.
   Widget() {}
   
-  //check for input and recalculate all the variables to see if rendering is needed
+  public abstract void update();
+}
+
+class Window extends Widget {
+  ArrayList<Widget> children;
+  
   void update() {
-    
+    children.forEach(e -> e.update());
+  }
+}
+
+class DraggableLabel extends Widget {
+  //float x, y, w, h;
+  String label;
+  
+  DraggableLabel(float x, float y, float w, float h, String label) {
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.label = label;
   }
   
-  //render. first render self and then children if needed.
-  void render() {
-    
+  void update() {
+    rect(x,y,w,h);
+    text(label, x+((w/2)-(textWidth(label)/2)), y+(h/2)+(textAscent()/2));
   }
 }
 
 
 
 
-// examples for testing and figuring out what i'm gonna do
+//abstract class Widget {
+//  float x,y,w,h;
+//  ArrayList<Widget> children;
+  
+//  Widget(float x, float y, float w, float h) {
+//    this.x = x;
+//    this.y = y;
+//    this.w = w;
+//    this.h = h;
+//  }
+  
+//  Widget() {}
+  
+//  public abstract void update();
+//}
 
-class SimpleTile extends Widget {
+
+
+//abstract class Widget {
+//  float x,y,w,h;
+//  ArrayList<Widget> children;
   
-  void update() {
-    
-  }
+//  Widget(float x, float y, float w, float h) {
+//    this.x = x;
+//    this.y = y;
+//    this.w = w;
+//    this.h = h;
+//  }
   
-  void render() {
+//  Widget() {}
+  
+//  public void update() {
+//    children.forEach(e -> e.update());
+//  };
+  
+//  abstract protected void render();
+//}
+//
+//
+//class SimpleTile extends Widget {
+  
+//  void update() {
     
-  }
-}
+//  }
+  
+//  void render() {
+    
+//  }
+//}
