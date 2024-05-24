@@ -10,7 +10,7 @@ void setup() {
 
 float x, y, z = 0;
 float size = 500;
-
+int axisLength = 200;
 
 float step = 0.01;
 float scale = 1;
@@ -43,13 +43,24 @@ void draw() {
   
   bsx = mouseX;
   bsy = mouseY;
+  
+  
   if (autorotate) {
     ry += dt/500f;
   }
-  
   if(showCube) {
     box(size);
   }
+  if(showAxes) {
+    stroke(255, 0, 0);
+    line(0, 0, 0, axisLength, 0, 0);
+    stroke(0, 255, 0);
+    line(0, 0, 0, 0, axisLength, 0);
+    stroke(0, 0, 255);
+    line(0, 0, 0, 0, 0, axisLength);
+  }
+  
+  
   beginShape(LINES);
 
   function(-size/2);
