@@ -13,3 +13,4 @@ target
 target_ra
 target_wasm
 .lycheecache
+.vscode
