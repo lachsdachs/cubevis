@@ -8,8 +8,6 @@ void setup() {
   screenLog("initiated succesfully");
 }
 
-boolean rotateWeirdly = false;
-
 float x, y, z = 0;
 float size = 500;
 
