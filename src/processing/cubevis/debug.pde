@@ -7,8 +7,9 @@ void debug() {
   screenWrite("iteration step size: " + step);
   screenWrite("frametime delta: " + dt);
   screenWrite("current time signature: " + tSig());
-  screenWrite(keyPressed && key != CODED ? "key = " + key : "no key set");
-  screenWrite(keyPressed && keyCode != 0 ? "keyCode = " + keyCode : "no keycode set");
+  if(keyPressed && key != CODED) screenWrite("key = " + key);
+  if(keyPressed && keyCode != 0) screenWrite("keyCode = " + keyCode);
+  if(mousePressed) screenWrite("mouse button code: " + mouseButton);
   empty();
   screenWrite("press [s] for screenshot");
   screenWrite("press [d] to hide/show debug");
