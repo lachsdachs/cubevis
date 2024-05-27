@@ -1,3 +1,5 @@
+Window window = new Window();
+
 void setup() {
   size(800, 800, P3D);
   surface.setResizable(true);
@@ -5,6 +7,8 @@ void setup() {
   textSize(20);
   strokeWeight(3);
   //colorMode(HSB);
+  constructGUI();
+  
   screenLog("initiated succesfully");
 }
 
@@ -68,6 +72,8 @@ void draw() {
   popMatrix();
   
   hint(DISABLE_DEPTH_TEST);
+  
+  window.update();
   
   if (printDebug) {
     debug();

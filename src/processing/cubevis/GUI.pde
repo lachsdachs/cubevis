@@ -1,5 +1,3 @@
-DraggableLabel label = new DraggableLabel(600,600,100,50,"label");
-
-void GUI() {
-  
+void constructGUI() {
+  window.add(new Label(600,600,100,60,"label"));
 }
