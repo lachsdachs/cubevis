@@ -1,31 +1,55 @@
-abstract class Widget extends DrawingContext{
+class Style {
+  Style() {}
+  
+  Style(Runnable style) {
+    this.style = style;
+  }
+  
+  void apply() {
+    style.run();
+  }
+  Runnable style = () -> System.out.println("Warning: someone just applied an empty style");
+}
+
+abstract class Widget {
   public float x, y, w, h;
+  Style style = new Style();
   
   
   ArrayList<Widget> children = new ArrayList<Widget>();
 
-  Widget() {
-  }
-
   public abstract void update();
 
   public void updateChildren() {
+    pushMatrix();
+    pushStyle();
     translate(x, y);
     children.forEach(e -> e.update());
+    popMatrix();
+    popStyle();
   }
 
-  void add(Widget widget) {
+  Widget add(Widget widget) {
     children.add(widget);
+    return(this);
   }
-
-  void add(Widget[] widgets) {
-    for (Widget widget : widgets) {
+  
+  Widget add(Widget[] widgets) {
+    for(Widget widget : widgets) {
       children.add(widget);
     }
+    return(this);
   }
   
+  public Widget style(Style style) {
+    this.style = style;
+    return(this);
+  }
   
-  
+  public Widget style(Runnable style) {
+    this.style.style = style; // T I H I
+    return(this);
+  }
 }
 
 class Window extends Widget {
@@ -49,6 +73,7 @@ class Label extends Widget {
   }
 
   void update() {
+    style.apply();
     rect(x, y, w, h);
     text(label, x+((w/2)-(textWidth(label)/2)), y+(h/2)+(textAscent()/2));
   }
